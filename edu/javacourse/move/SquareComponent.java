@@ -23,11 +23,28 @@ public class SquareComponent extends JComponent implements ActionListener
             if (MoveSquareFrame.UP.equals(btn.getActionCommand()))
             {
                 y -= STEP;
+                if (y < 0) y = 0;
             }
 
             if (MoveSquareFrame.DOWN.equals(btn.getActionCommand()))
             {
                 y += STEP;
+                int h = getSize().height - SQUARE_SIZE - 1;
+                if (y > h) y = h;
+                System.out.println(h);
+            }
+
+            if (MoveSquareFrame.LEFT.equals(btn.getActionCommand()))
+            {
+                x -= STEP;
+                if (x < 0) x = 0;
+            }
+
+            if (MoveSquareFrame.RIGHT.equals(btn.getActionCommand()))
+            {
+                x += STEP;
+                int w = getSize().width - SQUARE_SIZE - 1;
+                if (x > w) x = w;
             }
 
             repaint();
